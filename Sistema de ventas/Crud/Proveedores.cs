@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Sistema_de_ventas
 {
-    public partial class Form1 : Form
+    public partial class InsertProductos : Form
     {
-        public Form1()
+        public InsertProductos()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
