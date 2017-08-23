@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema_de_ventas.Conexiones;
 
 namespace Sistema_de_ventas
 {
@@ -31,8 +25,23 @@ namespace Sistema_de_ventas
             inicioSesion.Top = 0;
             inicioSesion.Left = 0;
             this.Dispose();*/
+            // Create/Insert
+            var db = new Db();
 
-            ContainerHome containerHome = new ContainerHome();
+            db.query("Select * FROM usuario");
+            
+            Usuario orm = new Usuario();
+            orm._nombre = txtNombre.Text;
+            orm._password = txtClave.Text;
+            orm._fecha = "12:00";
+
+            int create = orm.create();
+            
+            db.bind(new string[] { "f", "test", "l", "test", "s", "F", "a", "33"});
+
+            var created = db.nQuery("INSERT INTO `usuario` (`idUsuario`, `nombre`, `password`, `fecha`) VALUES(@f,@l,@s,@a)");
+
+            var containerHome = new ContainerHome();
             containerHome.Show();
             this.Hide();
         }

@@ -52,6 +52,9 @@
     <Compile Include="Ayuda.Designer.cs">
       <DependentUpon>Ayuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Conexiones\Db.cs" />
+    <Compile Include="Conexiones\SimpleORM.cs" />
+    <Compile Include="Conexiones\Usuario.cs" />
     <Compile Include="ContainerHome.cs">
       <SubType>Form</SubType>
     </Compile>
