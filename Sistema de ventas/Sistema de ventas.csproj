@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\20151125_5655086d6c3e7.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -46,14 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlmacenamientoLocal.cs" />
     <Compile Include="Ayuda.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ayuda.Designer.cs">
       <DependentUpon>Ayuda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Conexiones\Articulo.cs" />
+    <Compile Include="Conexiones\Cliente.cs" />
     <Compile Include="Conexiones\Db.cs" />
+    <Compile Include="Conexiones\DetalleFactura.cs" />
+    <Compile Include="Conexiones\Devolucion.cs" />
+    <Compile Include="Conexiones\Factura.cs" />
+    <Compile Include="Conexiones\FormaPago.cs" />
+    <Compile Include="Conexiones\Proveedor.cs" />
     <Compile Include="Conexiones\SimpleORM.cs" />
+    <Compile Include="Conexiones\TipoArticulo.cs" />
     <Compile Include="Conexiones\Usuario.cs" />
     <Compile Include="ContainerHome.cs">
       <SubType>Form</SubType>
@@ -158,6 +170,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sweet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\candy-cane-512.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20151125_5655086d6c3e7.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
