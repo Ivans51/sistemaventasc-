@@ -58,7 +58,6 @@ namespace Sistema_de_ventas
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             InsertProductos insertProductos = new InsertProductos();
             insertProductos.MdiParent = this;
             insertProductos.WindowState = FormWindowState.Normal;
@@ -81,32 +80,62 @@ namespace Sistema_de_ventas
 
         private void btnArticulos_Click(object sender, EventArgs e)
         {
-
+            Articulos articulos = new Articulos();
+            articulos.MdiParent = this;
+            articulos.WindowState = FormWindowState.Normal;
+            articulos.Show();
+            articulos.Top = 0;
+            articulos.Left = 0;
         }
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-
+            Clientes clientes = new Clientes ();
+            clientes.MdiParent = this;
+            clientes.WindowState = FormWindowState.Normal;
+            clientes.Show();
+            clientes.Top = 0;
+            clientes.Left = 0;
         }
 
         private void btnVendedor_Click(object sender, EventArgs e)
         {
-
+            Usuarios usuarios = new Usuarios();
+            usuarios.MdiParent = this;
+            usuarios.WindowState = FormWindowState.Normal;
+            usuarios.Show();
+            usuarios.Top = 0;
+            usuarios.Left = 0;
         }
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-
+            Ventas ventas = new Ventas();
+            ventas.MdiParent = this;
+            ventas.WindowState = FormWindowState.Normal;
+            ventas.Show();
+            ventas.Top = 0;
+            ventas.Left = 0;
         }
 
         private void btnAdministrar_Click(object sender, EventArgs e)
         {
-
+            Devoluciones devoluciones = new Devoluciones();
+            devoluciones.MdiParent = this;
+            devoluciones.WindowState = FormWindowState.Normal;
+            devoluciones.Show();
+            devoluciones.Top = 0;
+            devoluciones.Left = 0;
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            Ayuda ayuda = new Ayuda();
+            ayuda.MdiParent = this;
+            ayuda.WindowState = FormWindowState.Normal;
+            ayuda.Show();
+            ayuda.Top = 0;
+            ayuda.Left = 0;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Sistema_de_ventas.Conexiones
         private DateTime fecha_factura;
         private double total_factura;
         private double IVA;
-        private int forma_pago_idforma_pago;
+        private int forma_pago;
         private string cliente_idcliente;
         private int articulo_idarticulo;
         private int usuario_idusuario;
@@ -44,10 +44,10 @@ namespace Sistema_de_ventas.Conexiones
             set => IVA = value;
         }
 
-        public int _forma_pago_idforma_pago
+        public int _forma_pago
         {
-            get => forma_pago_idforma_pago;
-            set => forma_pago_idforma_pago = value;
+            get => forma_pago;
+            set => forma_pago = value;
         }
 
         public string _cliente_idcliente

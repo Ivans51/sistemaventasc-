@@ -35,6 +35,27 @@
     <ApplicationIcon>Resources\20151125_5655086d6c3e7.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itext.forms, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.4\lib\net40\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.4\lib\net40\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.4\lib\net40\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.4\lib\net40\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.4\lib\net40\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.0.4\lib\net40\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,10 +83,8 @@
     <Compile Include="Conexiones\DetalleFactura.cs" />
     <Compile Include="Conexiones\Devolucion.cs" />
     <Compile Include="Conexiones\Factura.cs" />
-    <Compile Include="Conexiones\FormaPago.cs" />
     <Compile Include="Conexiones\Proveedor.cs" />
     <Compile Include="Conexiones\SimpleORM.cs" />
-    <Compile Include="Conexiones\TipoArticulo.cs" />
     <Compile Include="Conexiones\Usuario.cs" />
     <Compile Include="ContainerHome.cs">
       <SubType>Form</SubType>
@@ -85,11 +104,17 @@
     <Compile Include="Crud\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Crud\Vendedores.cs">
+    <Compile Include="Crud\Devoluciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Crud\Vendedores.Designer.cs">
-      <DependentUpon>Vendedores.cs</DependentUpon>
+    <Compile Include="Crud\Devoluciones.Designer.cs">
+      <DependentUpon>Devoluciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Crud\Usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Crud\Usuarios.Designer.cs">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Crud\Ventas.cs">
       <SubType>Form</SubType>
@@ -109,6 +134,8 @@
     <Compile Include="Crud\Proveedores.Designer.cs">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="PDFCreator.cs" />
+    <Compile Include="PDFTabla.cs" />
     <Compile Include="Samples\Connection.cs" />
     <Compile Include="InicioSesion.cs">
       <SubType>Form</SubType>
@@ -130,11 +157,14 @@
     <EmbeddedResource Include="Crud\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Crud\Devoluciones.resx">
+      <DependentUpon>Devoluciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Crud\Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Crud\Vendedores.resx">
-      <DependentUpon>Vendedores.cs</DependentUpon>
+    <EmbeddedResource Include="Crud\Usuarios.resx">
+      <DependentUpon>Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Crud\Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
@@ -155,6 +185,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

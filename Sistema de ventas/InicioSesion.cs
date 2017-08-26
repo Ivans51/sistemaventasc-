@@ -53,7 +53,7 @@ namespace Sistema_de_ventas
             Usuario orm = new Usuario();
             orm._nombre = txtNombre.Text;
             orm._password = txtClave.Text;
-            orm._fecha = "12:00";
+            orm._fecha = DateTime.Now;
 
             int create = orm.create();
 

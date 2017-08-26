@@ -50,9 +50,14 @@
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHome.Location = new System.Drawing.Point(25, 41);
+            this.btnHome.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnHome.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Location = new System.Drawing.Point(36, 40);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(75, 23);
             this.btnHome.TabIndex = 1;
@@ -62,7 +67,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnAdministrar);
             this.panel1.Controls.Add(this.btnVentas);
@@ -71,16 +76,22 @@
             this.panel1.Controls.Add(this.btnArticulos);
             this.panel1.Controls.Add(this.btnProveedor);
             this.panel1.Controls.Add(this.btnHome);
-            this.panel1.Location = new System.Drawing.Point(1, 27);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(788, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 455);
-            this.panel1.TabIndex = 3;
+            this.panel1.Size = new System.Drawing.Size(142, 462);
+            this.panel1.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(25, 355);
+            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(36, 348);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -90,21 +101,31 @@
             // 
             // btnAdministrar
             // 
-            this.btnAdministrar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAdministrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAdministrar.Location = new System.Drawing.Point(25, 313);
+            this.btnAdministrar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdministrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdministrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnAdministrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdministrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdministrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrar.ForeColor = System.Drawing.Color.White;
+            this.btnAdministrar.Location = new System.Drawing.Point(36, 304);
             this.btnAdministrar.Name = "btnAdministrar";
             this.btnAdministrar.Size = new System.Drawing.Size(75, 23);
             this.btnAdministrar.TabIndex = 7;
-            this.btnAdministrar.Text = "Administrar";
+            this.btnAdministrar.Text = "Devoluciones";
             this.btnAdministrar.UseVisualStyleBackColor = false;
             this.btnAdministrar.Click += new System.EventHandler(this.btnAdministrar_Click);
             // 
             // btnVentas
             // 
-            this.btnVentas.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVentas.Location = new System.Drawing.Point(25, 284);
+            this.btnVentas.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVentas.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnVentas.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.ForeColor = System.Drawing.Color.White;
+            this.btnVentas.Location = new System.Drawing.Point(36, 260);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Size = new System.Drawing.Size(75, 23);
             this.btnVentas.TabIndex = 6;
@@ -114,21 +135,31 @@
             // 
             // btnVendedor
             // 
-            this.btnVendedor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnVendedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnVendedor.Location = new System.Drawing.Point(25, 238);
+            this.btnVendedor.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVendedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVendedor.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnVendedor.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVendedor.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVendedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendedor.ForeColor = System.Drawing.Color.White;
+            this.btnVendedor.Location = new System.Drawing.Point(36, 216);
             this.btnVendedor.Name = "btnVendedor";
             this.btnVendedor.Size = new System.Drawing.Size(75, 23);
             this.btnVendedor.TabIndex = 5;
-            this.btnVendedor.Text = "Vendedor";
+            this.btnVendedor.Text = "Usuarios";
             this.btnVendedor.UseVisualStyleBackColor = false;
             this.btnVendedor.Click += new System.EventHandler(this.btnVendedor_Click);
             // 
             // btnClientes
             // 
-            this.btnClientes.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClientes.Location = new System.Drawing.Point(25, 195);
+            this.btnClientes.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClientes.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.ForeColor = System.Drawing.Color.White;
+            this.btnClientes.Location = new System.Drawing.Point(36, 172);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(75, 23);
             this.btnClientes.TabIndex = 4;
@@ -138,9 +169,14 @@
             // 
             // btnArticulos
             // 
-            this.btnArticulos.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnArticulos.Location = new System.Drawing.Point(25, 140);
+            this.btnArticulos.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnArticulos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArticulos.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnArticulos.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnArticulos.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArticulos.ForeColor = System.Drawing.Color.White;
+            this.btnArticulos.Location = new System.Drawing.Point(36, 128);
             this.btnArticulos.Name = "btnArticulos";
             this.btnArticulos.Size = new System.Drawing.Size(75, 23);
             this.btnArticulos.TabIndex = 3;
@@ -150,9 +186,14 @@
             // 
             // btnProveedor
             // 
-            this.btnProveedor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnProveedor.Location = new System.Drawing.Point(25, 86);
+            this.btnProveedor.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProveedor.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.ForeColor = System.Drawing.Color.White;
+            this.btnProveedor.Location = new System.Drawing.Point(36, 84);
             this.btnProveedor.Name = "btnProveedor";
             this.btnProveedor.Size = new System.Drawing.Size(75, 23);
             this.btnProveedor.TabIndex = 2;
@@ -162,17 +203,19 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.panel2.Controls.Add(this.lblNombreVendedor);
-            this.panel2.Location = new System.Drawing.Point(1, 448);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 486);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(842, 34);
+            this.panel2.Size = new System.Drawing.Size(930, 34);
             this.panel2.TabIndex = 4;
             // 
             // lblNombreVendedor
             // 
             this.lblNombreVendedor.AutoSize = true;
             this.lblNombreVendedor.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreVendedor.Location = new System.Drawing.Point(681, 9);
+            this.lblNombreVendedor.Location = new System.Drawing.Point(770, 8);
             this.lblNombreVendedor.Name = "lblNombreVendedor";
             this.lblNombreVendedor.Size = new System.Drawing.Size(142, 17);
             this.lblNombreVendedor.TabIndex = 0;
@@ -184,7 +227,7 @@
             this.homeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(930, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,9 +250,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(842, 484);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(930, 520);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

@@ -10,7 +10,6 @@ namespace Sistema_de_ventas.Conexiones
         private double precio_costo;
         private string stock;
         private DateTime fecha_ingreso;
-        private int tipo_articulo_idtipo_articulo;
         private int proveedor_idproveedor;
 
         public int _idarticulo
@@ -47,12 +46,6 @@ namespace Sistema_de_ventas.Conexiones
         {
             get => fecha_ingreso;
             set => fecha_ingreso = value;
-        }
-
-        public int _tipo_articulo_idtipo_articulo
-        {
-            get => tipo_articulo_idtipo_articulo;
-            set => tipo_articulo_idtipo_articulo = value;
         }
 
         public int _proveedor_idproveedor
