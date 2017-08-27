@@ -8,16 +8,17 @@ using System.Collections.Generic;
 
 namespace Sistema_de_ventas.Crud
 {
-    public partial class Ventas : Form
+    public partial class Ventas : Form, PDFTabla
     {
         Db db = new Db();
         Factura factura = new Factura();
         DetalleFactura detalleFactura = new DetalleFactura();
         Cliente cliente = new Cliente();
-        List<int> listArticulos = new List<int>();
+        List<int> listPrecio = new List<int>();
         string articulos;
         private int idFactura;
         private int idDetalle;
+        PDFCreator creator = new PDFCreator();
 
         public Ventas()
         {
@@ -28,11 +29,35 @@ namespace Sistema_de_ventas.Crud
         {
             GetValue();
             int i = factura.create();
-            GetValueDetalle(i);
-            detalleFactura.create();
+            // GetValueDetalle(i);
+            // detalleFactura.create();
             var dialogResult = MessageBox.Show("Nombre Cliente no encontrado", "Mensaje Sweet Shop", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (dialogResult == DialogResult.OK)
+            {
+                string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+                creator.setSegundoParrafo("Factura para " + lblNombreCliente.Text);
+                creator.RutaAbrir = AlmacenamientoLocal.RutaPDF + "factura" + lblNombreCliente.Text + fecha + ".pdf";
+                creator.crearPDF("factura" + lblNombreCliente.Text + fecha + ".pdf", "Artículos Sweet Shop" + fecha, 7, this);
                 Hide();
+            }
+        }
+
+        public void addCellTable()
+        {
+            creator.getTabla().AddCell("Articulos");
+            creator.getTabla().AddCell("Forma de Pago");
+            creator.getTabla().AddCell("Cantidad");
+            creator.getTabla().AddCell("Empleado");
+            creator.getTabla().AddCell("IVA");
+            creator.getTabla().AddCell("Fecha");
+            creator.getTabla().AddCell("Total");
+            creator.getTabla().AddCell(articulos);
+            creator.getTabla().AddCell(cbFormaPago.Text);
+            creator.getTabla().AddCell(txtCantidad.Text);
+            creator.getTabla().AddCell(lblNombreEmpleado.Text);
+            creator.getTabla().AddCell(lblIVA.Text);
+            creator.getTabla().AddCell(lblFecha.Text);
+            creator.getTabla().AddCell(lblTotalFactura.Text);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -56,7 +81,7 @@ namespace Sistema_de_ventas.Crud
 
             factura._nombre_empleado = AlmacenamientoLocal.Usuario._nombre;
             factura._articulos = articulos;
-            factura._fecha_factura = DateTime.Now.ToString();
+            factura._fecha_facturacion = DateTime.Now.ToString();
             factura._total_factura = Convert.ToDouble(lblTotalFactura.Text);
             factura._IVA = Convert.ToDouble(lblIVA.Text);
             factura._forma_pago = cbFormaPago.Text;
@@ -90,13 +115,15 @@ namespace Sistema_de_ventas.Crud
             }
             articulos = text;
 
-            foreach (var item in listArticulos)
+            foreach (var item in listPrecio)
             {
-                totalPagar = item;
+                totalPagar += item;
             }
+            totalPagar = totalPagar * Convert.ToInt32(txtCantidad.Text);
             double IVA = totalPagar * 0.12;
             lblIVA.Text = IVA.ToString();
-            lblTotalFactura.Text = totalPagar.ToString();
+            double totalTotal = totalPagar + IVA;
+            lblTotalFactura.Text = totalTotal.ToString();
 
             btnInsertar.Enabled = true;
         }
@@ -119,24 +146,26 @@ namespace Sistema_de_ventas.Crud
         {
             db.bind(new string[] { "idarticulo", txtArticulo.Text, "nombre", txtArticulo.Text });
             string nombreArticulo = db.single("Select nombre FROM articulo WHERE idarticulo = @idarticulo OR nombre = @nombre");
+
             db.bind(new string[] { "idarticulo", txtArticulo.Text, "nombre", txtArticulo.Text });
             string precioVenta = db.single("Select precio_venta FROM articulo WHERE idarticulo = @idarticulo OR nombre = @nombre");
+
             db.bind(new string[] { "idarticulo", txtArticulo.Text, "nombre", txtArticulo.Text });
             string stock = db.single("Select stock FROM articulo WHERE idarticulo = @idarticulo OR nombre = @nombre");
+
             if (nombreArticulo == "")
             {
                 MessageBox.Show("Artículo no encontrado", "Mensaje Sweet Shop", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                int x = 0;
-
-                if (Int32.TryParse(precioVenta, out x))
+                int precioVentaReal = 0;
+                if (Int32.TryParse(precioVenta, out precioVentaReal))
                 {
-                    int precioRealVenta = x;
+                    int precioRealVenta = precioVentaReal;
                 }
                 listBox1.Items.Add(nombreArticulo);
-                listArticulos.Add(x);
+                listPrecio.Add(precioVentaReal);
             }
         }
 

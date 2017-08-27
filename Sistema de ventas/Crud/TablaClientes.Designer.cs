@@ -34,6 +34,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.SuspendLayout();
@@ -42,6 +43,7 @@
             // 
             this.panel2.Controls.Add(this.dgClientes);
             this.panel2.Controls.Add(this.btnImprimir);
+            this.panel2.Controls.Add(this.btnMostrar);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.txtBuscar);
             this.panel2.Controls.Add(this.btnSalir);
@@ -126,6 +128,24 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnMostrar
+            // 
+            this.btnMostrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMostrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMostrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrar.ForeColor = System.Drawing.Color.White;
+            this.btnMostrar.Location = new System.Drawing.Point(416, 124);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(84, 27);
+            this.btnMostrar.TabIndex = 0;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = false;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
             // TablaClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -151,5 +171,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnMostrar;
     }
 }

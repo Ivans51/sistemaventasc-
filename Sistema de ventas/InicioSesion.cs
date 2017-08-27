@@ -6,6 +6,7 @@ namespace Sistema_de_ventas
 {
     public partial class InicioSesion : Form
     {
+        Usuario usuario = new Usuario();
         public InicioSesion()
         {
             InitializeComponent();
@@ -21,45 +22,31 @@ namespace Sistema_de_ventas
             var db = new Db();
             db.bind(new string[] {"nombre", txtNombre.Text, "password", txtClave.Text});
             string idUser = db.single("Select * FROM usuario WHERE nombre = @nombre AND password = @password");
-            Usuario usuario = new Usuario();
             int x = 0;
             if (Int32.TryParse(idUser, out x))
             {
-                usuario.find(x);                
+                AlmacenamientoLocal.Usuario = (Usuario) usuario.find(x);
+                AlmacenamientoLocal.Usuario._idUsuario = x;
             }
 
             if (usuario._nombre == txtNombre.Text && usuario._password == txtClave.Text)
             {
-
-                AlmacenamientoLocal.Usuario = usuario;
-
                 var containerHome = new ContainerHome();
                 containerHome.Show();
-                this.Hide();
+                Hide();
             }
             else
             {
-                const string message = "Error datos";
-                MessageBox.Show(message);
+                txtNombre.Text = "";
+                txtClave.Text = "";
+                txtNombre.Focus();
+                MessageBox.Show("Datos incorrectos", "Sweet Shop Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void GetValue()
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            var db = new Db();
-
-            db.query("Select * FROM usuario WHERE nombre ");
-
-            Usuario orm = new Usuario();
-            orm._nombre = txtNombre.Text;
-            orm._password = txtClave.Text;
-            orm._fecha = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"); ;
-
-            int create = orm.create();
-
-            db.bind(new string[] {"f", "test", "l", "test", "s", "F", "a", "33"});
-
-            db.nQuery("INSERT INTO `usuario` (`idUsuario`, `nombre`, `password`, `fecha`) VALUES(@f,@l,@s,@a)");
+            Application.Exit();
         }
     }
 }

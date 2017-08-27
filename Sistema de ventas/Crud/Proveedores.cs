@@ -34,6 +34,7 @@ namespace Sistema_de_ventas
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            btnEditar.Enabled = false;
             GetValue();
             proveedor.save(idProveedor);
             limpiarCampos(true);
@@ -75,6 +76,7 @@ namespace Sistema_de_ventas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            btnEditar.Enabled = true;
             int x = 0;
             if (Int32.TryParse(txtBuscar.Text, out x))
             {
@@ -99,29 +101,19 @@ namespace Sistema_de_ventas
             if (habilitarBtn)
             {
                 btnInsertar.Enabled = true;
-                btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
             }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            /* if (stateDG)
-            {
-                limpiarCampos(true);
-                stateDG = false;
-            }
-            else
-            { */
             habibilitarBtn();
             llenarCampos();
-            //}
         }
 
         private void habibilitarBtn()
         {
             btnInsertar.Enabled = false;
-            btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
         }
 

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContainerHome));
             this.btnHome = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnAdministrar = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
@@ -40,26 +41,23 @@
             this.btnProveedor = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNombreVendedor = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHome
             // 
-            this.btnHome.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnHome.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHome.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnHome.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnHome.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHome.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Location = new System.Drawing.Point(36, 40);
+            this.btnHome.Location = new System.Drawing.Point(25, 12);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(75, 23);
+            this.btnHome.Size = new System.Drawing.Size(94, 33);
             this.btnHome.TabIndex = 1;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = false;
@@ -67,7 +65,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.btnAdministrar);
             this.panel1.Controls.Add(this.btnVentas);
@@ -77,57 +76,78 @@
             this.panel1.Controls.Add(this.btnProveedor);
             this.panel1.Controls.Add(this.btnHome);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(788, 24);
+            this.panel1.Location = new System.Drawing.Point(822, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 462);
+            this.panel1.Size = new System.Drawing.Size(142, 472);
             this.panel1.TabIndex = 5;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Location = new System.Drawing.Point(25, 403);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(94, 33);
+            this.btnSalir.TabIndex = 8;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(36, 348);
+            this.button1.Location = new System.Drawing.Point(25, 356);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(94, 33);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Ayuda";
+            this.button1.Text = "Acerca de";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnAdministrar
             // 
-            this.btnAdministrar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdministrar.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnAdministrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdministrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnAdministrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnAdministrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnAdministrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdministrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAdministrar.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrar.ForeColor = System.Drawing.Color.White;
-            this.btnAdministrar.Location = new System.Drawing.Point(36, 304);
+            this.btnAdministrar.Location = new System.Drawing.Point(25, 294);
             this.btnAdministrar.Name = "btnAdministrar";
-            this.btnAdministrar.Size = new System.Drawing.Size(75, 23);
+            this.btnAdministrar.Size = new System.Drawing.Size(94, 48);
             this.btnAdministrar.TabIndex = 7;
-            this.btnAdministrar.Text = "Devoluciones";
+            this.btnAdministrar.Text = "Registro de Ventas";
             this.btnAdministrar.UseVisualStyleBackColor = false;
             this.btnAdministrar.Click += new System.EventHandler(this.btnAdministrar_Click);
             // 
             // btnVentas
             // 
-            this.btnVentas.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVentas.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnVentas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVentas.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnVentas.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVentas.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVentas.ForeColor = System.Drawing.Color.White;
-            this.btnVentas.Location = new System.Drawing.Point(36, 260);
+            this.btnVentas.Location = new System.Drawing.Point(25, 247);
             this.btnVentas.Name = "btnVentas";
-            this.btnVentas.Size = new System.Drawing.Size(75, 23);
+            this.btnVentas.Size = new System.Drawing.Size(94, 33);
             this.btnVentas.TabIndex = 6;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.UseVisualStyleBackColor = false;
@@ -135,16 +155,17 @@
             // 
             // btnVendedor
             // 
-            this.btnVendedor.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnVendedor.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnVendedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVendedor.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnVendedor.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnVendedor.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnVendedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnVendedor.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVendedor.ForeColor = System.Drawing.Color.White;
-            this.btnVendedor.Location = new System.Drawing.Point(36, 216);
+            this.btnVendedor.Location = new System.Drawing.Point(25, 200);
             this.btnVendedor.Name = "btnVendedor";
-            this.btnVendedor.Size = new System.Drawing.Size(75, 23);
+            this.btnVendedor.Size = new System.Drawing.Size(94, 33);
             this.btnVendedor.TabIndex = 5;
             this.btnVendedor.Text = "Usuarios";
             this.btnVendedor.UseVisualStyleBackColor = false;
@@ -152,16 +173,17 @@
             // 
             // btnClientes
             // 
-            this.btnClientes.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClientes.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClientes.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnClientes.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnClientes.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClientes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClientes.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClientes.ForeColor = System.Drawing.Color.White;
-            this.btnClientes.Location = new System.Drawing.Point(36, 172);
+            this.btnClientes.Location = new System.Drawing.Point(25, 153);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(75, 23);
+            this.btnClientes.Size = new System.Drawing.Size(94, 33);
             this.btnClientes.TabIndex = 4;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = false;
@@ -169,16 +191,17 @@
             // 
             // btnArticulos
             // 
-            this.btnArticulos.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnArticulos.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnArticulos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArticulos.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnArticulos.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnArticulos.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnArticulos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnArticulos.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArticulos.ForeColor = System.Drawing.Color.White;
-            this.btnArticulos.Location = new System.Drawing.Point(36, 128);
+            this.btnArticulos.Location = new System.Drawing.Point(25, 106);
             this.btnArticulos.Name = "btnArticulos";
-            this.btnArticulos.Size = new System.Drawing.Size(75, 23);
+            this.btnArticulos.Size = new System.Drawing.Size(94, 33);
             this.btnArticulos.TabIndex = 3;
             this.btnArticulos.Text = "Artículos";
             this.btnArticulos.UseVisualStyleBackColor = false;
@@ -186,16 +209,17 @@
             // 
             // btnProveedor
             // 
-            this.btnProveedor.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnProveedor.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProveedor.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btnProveedor.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Highlight;
-            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnProveedor.Font = new System.Drawing.Font("Maiandra GD", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProveedor.ForeColor = System.Drawing.Color.White;
-            this.btnProveedor.Location = new System.Drawing.Point(36, 84);
+            this.btnProveedor.Location = new System.Drawing.Point(25, 59);
             this.btnProveedor.Name = "btnProveedor";
-            this.btnProveedor.Size = new System.Drawing.Size(75, 23);
+            this.btnProveedor.Size = new System.Drawing.Size(94, 33);
             this.btnProveedor.TabIndex = 2;
             this.btnProveedor.Text = "Proveedor";
             this.btnProveedor.UseVisualStyleBackColor = false;
@@ -203,57 +227,33 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.lblNombreVendedor);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 486);
+            this.panel2.Location = new System.Drawing.Point(0, 472);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(930, 34);
+            this.panel2.Size = new System.Drawing.Size(964, 34);
             this.panel2.TabIndex = 4;
             // 
             // lblNombreVendedor
             // 
             this.lblNombreVendedor.AutoSize = true;
-            this.lblNombreVendedor.Font = new System.Drawing.Font("Lucida Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreVendedor.Location = new System.Drawing.Point(770, 8);
+            this.lblNombreVendedor.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreVendedor.ForeColor = System.Drawing.Color.White;
+            this.lblNombreVendedor.Location = new System.Drawing.Point(22, 8);
             this.lblNombreVendedor.Name = "lblNombreVendedor";
-            this.lblNombreVendedor.Size = new System.Drawing.Size(142, 17);
+            this.lblNombreVendedor.Size = new System.Drawing.Size(145, 18);
             this.lblNombreVendedor.TabIndex = 0;
             this.lblNombreVendedor.Text = "Nombre Vendedor";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(930, 24);
-            this.menuStrip1.TabIndex = 5;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem});
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
             // 
             // ContainerHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(930, 520);
+            this.ClientSize = new System.Drawing.Size(964, 506);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
@@ -265,10 +265,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -284,9 +281,7 @@
         private System.Windows.Forms.Button btnProveedor;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblNombreVendedor;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

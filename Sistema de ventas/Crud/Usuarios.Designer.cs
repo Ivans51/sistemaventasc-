@@ -60,9 +60,9 @@
             this.panel2.Controls.Add(this.txtBuscar);
             this.panel2.Controls.Add(this.btnSalir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(281, 0);
+            this.panel2.Location = new System.Drawing.Point(297, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(498, 460);
+            this.panel2.Size = new System.Drawing.Size(513, 451);
             this.panel2.TabIndex = 4;
             // 
             // btnMostrar
@@ -192,7 +192,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 460);
+            this.panel1.Size = new System.Drawing.Size(291, 451);
             this.panel1.TabIndex = 3;
             // 
             // label3
@@ -312,7 +312,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 460);
+            this.ClientSize = new System.Drawing.Size(810, 451);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

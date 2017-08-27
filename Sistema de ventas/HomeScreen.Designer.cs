@@ -39,7 +39,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Lucida Sans", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(308, 74);
+            this.label1.Location = new System.Drawing.Point(343, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(173, 32);
             this.label1.TabIndex = 0;
@@ -49,9 +49,9 @@
             // 
             this.pictureBox1.BackgroundImage = global::Sistema_de_ventas.Properties.Resources.sweet;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(121, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(126, 27);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(546, 364);
+            this.pictureBox1.Size = new System.Drawing.Size(576, 394);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -60,7 +60,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(776, 471);
+            this.ClientSize = new System.Drawing.Size(810, 451);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

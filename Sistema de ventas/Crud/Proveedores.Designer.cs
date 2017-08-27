@@ -205,6 +205,7 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
@@ -223,6 +224,7 @@
             // 
             this.btnEditar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;

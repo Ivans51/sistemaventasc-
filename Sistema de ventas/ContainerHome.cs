@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistema_de_ventas.Conexiones;
 using Sistema_de_ventas.Crud;
@@ -21,21 +14,12 @@ namespace Sistema_de_ventas
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
+            DialogResult result = MessageBox.Show("¿Quieres Salir?", "Sweet Shop Mensaje", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-                DialogResult result = MessageBox.Show("Do you really want to exit?", "Dialog Title", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
-            }
-            else
-            {
-                e.Cancel = true;
+                Hide();
+                InicioSesion inicioSesion = new InicioSesion();
+                inicioSesion.Show();
             }
         }
 
@@ -50,13 +34,27 @@ namespace Sistema_de_ventas
 
         private void ContainerHome_Load(object sender, EventArgs e)
         {
-            // lblNombreVendedor.Text = AlmacenamientoLocal.Usuario._nombre;
+            if (AlmacenamientoLocal.Usuario._nivel.Equals("Vendedor"))
+            {
+                btnAdministrar.Visible = false;
+                btnArticulos.Visible = false;
+                btnProveedor.Visible = false;
+            }
+            else if (AlmacenamientoLocal.Usuario.Equals("Invitado"))
+            {
+                btnAdministrar.Visible = false;
+                btnArticulos.Visible = false;
+                btnProveedor.Visible = false;
+                btnVentas.Visible = false;
+            }
+
+            lblNombreVendedor.Text = AlmacenamientoLocal.Usuario._nombre;
             HomeScreen homeScreen = new HomeScreen();
             homeScreen.MdiParent = this;
             homeScreen.WindowState = FormWindowState.Normal;
             homeScreen.Show();
-            
-            SetUsuario();
+
+            // SetUsuario();
         }
 
         private static void SetUsuario()
@@ -82,7 +80,7 @@ namespace Sistema_de_ventas
 
         private void btnProveedor_Click(object sender, EventArgs e)
         {
-            Proveedores proveedores= new Proveedores();
+            Proveedores proveedores = new Proveedores();
             proveedores.MdiParent = this;
             proveedores.WindowState = FormWindowState.Normal;
             proveedores.Show();
@@ -109,7 +107,7 @@ namespace Sistema_de_ventas
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            Clientes clientes = new Clientes ();
+            Clientes clientes = new Clientes();
             clientes.MdiParent = this;
             clientes.WindowState = FormWindowState.Normal;
             clientes.Show();
@@ -155,6 +153,17 @@ namespace Sistema_de_ventas
             ayuda.Show();
             ayuda.Top = 0;
             ayuda.Left = 0;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Quieres Salir?", "Sweet Shop Mensaje", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Hide();
+                InicioSesion inicioSesion = new InicioSesion();
+                inicioSesion.Show();
+            }
         }
     }
 }

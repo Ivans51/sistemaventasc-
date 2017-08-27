@@ -49,6 +49,7 @@ namespace Sistema_de_ventas.Crud
             articulo.save(idArticulo);
             limpiarCampos(true);
             dgArticulos.DataSource = articulo.all();
+            btnEditar.Enabled = false;
         }
 
         private void GetValue()
@@ -81,6 +82,7 @@ namespace Sistema_de_ventas.Crud
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            btnEditar.Enabled = true;
             int x = 0;
             if (Int32.TryParse(txtBuscar.Text, out x))
             {
@@ -105,7 +107,6 @@ namespace Sistema_de_ventas.Crud
             if (habilitarBtn)
             {
                 btnInsertar.Enabled = true;
-                btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
             }
         }
@@ -113,7 +114,6 @@ namespace Sistema_de_ventas.Crud
         private void habibilitarBtn()
         {
             btnInsertar.Enabled = false;
-            btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
         }
 

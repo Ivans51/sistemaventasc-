@@ -42,6 +42,7 @@ namespace Sistema_de_ventas.Crud
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            btnEditar.Enabled = false;
             getValue();
             usuario.save(idUsuario);
             limpiarCampos(true);
@@ -79,6 +80,7 @@ namespace Sistema_de_ventas.Crud
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            btnEditar.Enabled = true;
             int x = 0;
             if (Int32.TryParse(txtBuscar.Text, out x))
             {
@@ -100,7 +102,6 @@ namespace Sistema_de_ventas.Crud
             if (habilitarBtn)
             {
                 btnInsertar.Enabled = true;
-                btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
             }
         }
@@ -122,7 +123,6 @@ namespace Sistema_de_ventas.Crud
         private void habibilitarBtn()
         {
             btnInsertar.Enabled = false;
-            btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
         }
 
@@ -133,7 +133,7 @@ namespace Sistema_de_ventas.Crud
                 idUsuario = (int) row.Cells[0].Value;
                 txtNombre.Text = row.Cells[1].Value.ToString();
                 txtPassword.Text = row.Cells[2].Value.ToString();
-                cbNivel.Text = row.Cells[3].Value.ToString();
+                cbNivel.Text = row.Cells[4].Value.ToString();
             }
         }
 
