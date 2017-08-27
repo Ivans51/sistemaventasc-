@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistema_de_ventas.Conexiones;
+using System.Diagnostics;
 
 namespace Sistema_de_ventas
 {
-    public partial class InsertProductos : Form, PDFTabla
+    public partial class Proveedores : Form, PDFTabla
     {
         Proveedor proveedor = new Proveedor();
         Db db = new Db();
         private int idProveedor;
-        private bool stateDG = false;
         PDFCreator creator = new PDFCreator();
-        
-        public InsertProductos()
+
+        public Proveedores()
         {
             InitializeComponent();
         }
@@ -28,6 +28,16 @@ namespace Sistema_de_ventas
         {
             GetValue();
             proveedor.create();
+            limpiarCampos(true);
+            dgProveedores.DataSource = proveedor.all();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            GetValue();
+            proveedor.save(idProveedor);
+            limpiarCampos(true);
+            dgProveedores.DataSource = proveedor.all();
         }
 
         private void GetValue()
@@ -41,12 +51,6 @@ namespace Sistema_de_ventas
             proveedor._usuario_idusuario = AlmacenamientoLocal.Usuario._idUsuario;
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            GetValue();
-            proveedor.save(idProveedor);
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             var dialogResult = MessageBox.Show("Desea eliminar esta usuario", "Elminar", MessageBoxButtons.YesNo,
@@ -54,6 +58,8 @@ namespace Sistema_de_ventas
             if (dialogResult == DialogResult.Yes)
             {
                 proveedor.delete(idProveedor);
+                limpiarCampos(true);
+                dgProveedores.DataSource = proveedor.all();
             }
         }
 
@@ -72,10 +78,16 @@ namespace Sistema_de_ventas
             int x = 0;
             if (Int32.TryParse(txtBuscar.Text, out x))
             {
-                dgProveedores.DataSource = proveedor.find(x);
+                db.bind("idProveedor", txtBuscar.Text);
+                dgProveedores.DataSource = db.query("SELECT * FROM proveedor WHERE idProveedor = @idProveedor");
+                if (dgProveedores.RowCount == 0)
+                {
+                    limpiarCampos(true);
+                    MessageBox.Show("No se encuentra", "Sweet Shop Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
-        
+
         private void limpiarCampos(bool habilitarBtn)
         {
             txtNombre.Text = "";
@@ -86,26 +98,26 @@ namespace Sistema_de_ventas
             txtNombreCiudad.Text = "";
             if (habilitarBtn)
             {
-                btnEditar.Enabled = true;
+                btnInsertar.Enabled = true;
+                btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
-                btnInsertar.Enabled = false;
             }
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
-            if (stateDG)
+            /* if (stateDG)
             {
                 limpiarCampos(true);
                 stateDG = false;
             }
             else
-            {
-                habibilitarBtn();
-                llenarCampos();
-            }
+            { */
+            habibilitarBtn();
+            llenarCampos();
+            //}
         }
-        
+
         private void habibilitarBtn()
         {
             btnInsertar.Enabled = false;
@@ -115,9 +127,11 @@ namespace Sistema_de_ventas
 
         private void llenarCampos()
         {
+            int num = dgProveedores.RowCount;
+            int row2 = dgProveedores.ColumnCount;
             foreach (DataGridViewRow row in dgProveedores.SelectedRows)
             {
-                idProveedor = (int) row.Cells[0].Value;
+                idProveedor = (int)row.Cells[0].Value;
                 txtNombre.Text = row.Cells[1].Value.ToString();
                 txtApellido.Text = row.Cells[2].Value.ToString();
                 txtNombreComercial.Text = row.Cells[3].Value.ToString();
@@ -129,6 +143,14 @@ namespace Sistema_de_ventas
 
         public void addCellTable()
         {
+            creator.getTabla().AddCell("idProveedor");
+            creator.getTabla().AddCell("Nombre");
+            creator.getTabla().AddCell("Apellido");
+            creator.getTabla().AddCell("Comercio");
+            creator.getTabla().AddCell("Dirección");
+            creator.getTabla().AddCell("Teléfono");
+            creator.getTabla().AddCell("Ciudad");
+            creator.getTabla().AddCell("idUsuario");
             foreach (DataGridViewRow row in dgProveedores.Rows)
             {
                 foreach (DataGridViewCell celli in row.Cells)
@@ -142,6 +164,35 @@ namespace Sistema_de_ventas
                     }
                 }
             }
+        }
+
+        private void Proveedores_Load(object sender, EventArgs e)
+        {
+            /* dgProveedores.DataSource = proveedor.all();
+            stateDG = true; */
+        }
+
+        private void btnRefrescar_Click_1(object sender, EventArgs e)
+        {
+            limpiarCampos(true);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            string fecha = DateTime.Now.ToString("d-M-yyyy");
+            creator.setSegundoParrafo("Lista de Proveedores ");
+            creator.RutaAbrir = AlmacenamientoLocal.RutaPDF + "proveedores" + fecha + ".pdf";
+            creator.crearPDF("proveedores" + fecha + ".pdf", "Proveedores Sweet Shop" + fecha, 8, this);
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
+            dgProveedores.DataSource = proveedor.all();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.entradaNumero(e);
         }
     }
 }

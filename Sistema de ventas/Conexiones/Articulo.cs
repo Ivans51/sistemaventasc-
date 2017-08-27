@@ -5,11 +5,12 @@ namespace Sistema_de_ventas.Conexiones
     class Articulo : SimpleORM 
     {
         private int idArticulo;
+        private string nombre;
         private string descripcion;
         private double precio_venta;
         private double precio_costo;
         private string stock;
-        private DateTime fecha_ingreso;
+        private string fecha_ingreso;
         private int proveedor_idproveedor;
 
         public int _idarticulo
@@ -42,7 +43,7 @@ namespace Sistema_de_ventas.Conexiones
             set => stock = value;
         }
 
-        public DateTime _fecha_ingreso
+        public string _fecha_ingreso
         {
             get => fecha_ingreso;
             set => fecha_ingreso = value;
@@ -52,6 +53,10 @@ namespace Sistema_de_ventas.Conexiones
         {
             get => proveedor_idproveedor;
             set => proveedor_idproveedor = value;
+        }
+        public string _nombre {
+            get => nombre;
+            set => nombre = value;
         }
 
         public Articulo()

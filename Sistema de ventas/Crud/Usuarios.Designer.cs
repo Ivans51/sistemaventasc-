@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMostrar = new System.Windows.Forms.Button();
             this.dgUsuarios = new System.Windows.Forms.DataGridView();
-            this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
@@ -53,8 +53,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnMostrar);
             this.panel2.Controls.Add(this.dgUsuarios);
-            this.panel2.Controls.Add(this.cbBuscar);
             this.panel2.Controls.Add(this.btnImprimir);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.txtBuscar);
@@ -64,6 +64,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(498, 460);
             this.panel2.TabIndex = 4;
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMostrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMostrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrar.ForeColor = System.Drawing.Color.White;
+            this.btnMostrar.Location = new System.Drawing.Point(402, 125);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(84, 27);
+            this.btnMostrar.TabIndex = 11;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = false;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // dgUsuarios
             // 
@@ -78,14 +96,6 @@
             this.dgUsuarios.Size = new System.Drawing.Size(498, 287);
             this.dgUsuarios.TabIndex = 3;
             this.dgUsuarios.SelectionChanged += new System.EventHandler(this.dgUsuarios_SelectionChanged);
-            // 
-            // cbBuscar
-            // 
-            this.cbBuscar.FormattingEnabled = true;
-            this.cbBuscar.Location = new System.Drawing.Point(172, 129);
-            this.cbBuscar.Name = "cbBuscar";
-            this.cbBuscar.Size = new System.Drawing.Size(83, 21);
-            this.cbBuscar.TabIndex = 6;
             // 
             // btnImprimir
             // 
@@ -103,7 +113,7 @@
             this.btnImprimir.TabIndex = 8;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnBuscar
             // 
@@ -127,8 +137,9 @@
             // 
             this.txtBuscar.Location = new System.Drawing.Point(16, 130);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(133, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(224, 20);
             this.txtBuscar.TabIndex = 5;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
             // btnSalir
             // 
@@ -158,7 +169,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(99, 406);
+            this.btnLimpiar.Location = new System.Drawing.Point(97, 254);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(146, 27);
             this.btnLimpiar.TabIndex = 12;
@@ -188,7 +199,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(24, 215);
+            this.label3.Location = new System.Drawing.Point(25, 160);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 18);
             this.label3.TabIndex = 2;
@@ -201,7 +212,7 @@
             "Invitado",
             "Vendedor",
             "Administrador"});
-            this.cbNivel.Location = new System.Drawing.Point(28, 253);
+            this.cbNivel.Location = new System.Drawing.Point(25, 190);
             this.cbNivel.Name = "cbNivel";
             this.cbNivel.Size = new System.Drawing.Size(217, 21);
             this.cbNivel.TabIndex = 3;
@@ -210,7 +221,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 157);
+            this.label2.Location = new System.Drawing.Point(25, 98);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 18);
             this.label2.TabIndex = 2;
@@ -220,7 +231,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(25, 99);
+            this.label1.Location = new System.Drawing.Point(25, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 18);
             this.label1.TabIndex = 2;
@@ -228,7 +239,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(27, 185);
+            this.txtPassword.Location = new System.Drawing.Point(25, 128);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(218, 20);
@@ -236,7 +247,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(27, 127);
+            this.txtNombre.Location = new System.Drawing.Point(25, 66);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(218, 20);
             this.txtNombre.TabIndex = 1;
@@ -245,13 +256,14 @@
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Enabled = false;
             this.btnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(62, 360);
+            this.btnEliminar.Location = new System.Drawing.Point(25, 374);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 27);
             this.btnEliminar.TabIndex = 10;
@@ -263,13 +275,14 @@
             // 
             this.btnEditar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEditar.Enabled = false;
             this.btnEditar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.btnEditar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEditar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEditar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(161, 360);
+            this.btnEditar.Location = new System.Drawing.Point(25, 420);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(84, 27);
             this.btnEditar.TabIndex = 11;
@@ -287,7 +300,7 @@
             this.btnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInsertar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInsertar.ForeColor = System.Drawing.Color.White;
-            this.btnInsertar.Location = new System.Drawing.Point(161, 312);
+            this.btnInsertar.Location = new System.Drawing.Point(25, 328);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(84, 27);
             this.btnInsertar.TabIndex = 4;
@@ -319,7 +332,6 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgUsuarios;
-        private System.Windows.Forms.ComboBox cbBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Panel panel1;
@@ -335,5 +347,6 @@
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.ComboBox cbNivel;
+        private System.Windows.Forms.Button btnMostrar;
     }
 }

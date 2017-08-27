@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema_de_ventas.Conexiones;
 using Sistema_de_ventas.Crud;
 
 namespace Sistema_de_ventas
@@ -54,21 +55,39 @@ namespace Sistema_de_ventas
             homeScreen.MdiParent = this;
             homeScreen.WindowState = FormWindowState.Normal;
             homeScreen.Show();
+            
+            SetUsuario();
+        }
+
+        private static void SetUsuario()
+        {
+            Usuario usuario = new Usuario();
+            usuario._idUsuario = 1;
+            usuario._nombre = "Ivans";
+            usuario._password = 1234.ToString();
+            usuario._nivel = "Administrador";
+            usuario._fecha = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"); ;
+            AlmacenamientoLocal.Usuario = usuario;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InsertProductos insertProductos = new InsertProductos();
-            insertProductos.MdiParent = this;
-            insertProductos.WindowState = FormWindowState.Normal;
-            insertProductos.Show();
-            insertProductos.Top = 0;
-            insertProductos.Left = 0;
+            HomeScreen homeScreen = new HomeScreen();
+            homeScreen.MdiParent = this;
+            homeScreen.WindowState = FormWindowState.Normal;
+            homeScreen.Show();
+            homeScreen.Top = 0;
+            homeScreen.Left = 0;
         }
 
         private void btnProveedor_Click(object sender, EventArgs e)
         {
-            // createObjectBy(typeof(Provee))
+            Proveedores proveedores= new Proveedores();
+            proveedores.MdiParent = this;
+            proveedores.WindowState = FormWindowState.Normal;
+            proveedores.Show();
+            proveedores.Top = 0;
+            proveedores.Left = 0;
         }
 
         Object createObjectBy(Type clazz)
@@ -120,7 +139,7 @@ namespace Sistema_de_ventas
 
         private void btnAdministrar_Click(object sender, EventArgs e)
         {
-            Devoluciones devoluciones = new Devoluciones();
+            TablaClientes devoluciones = new TablaClientes();
             devoluciones.MdiParent = this;
             devoluciones.WindowState = FormWindowState.Normal;
             devoluciones.Show();

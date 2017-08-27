@@ -104,11 +104,11 @@
     <Compile Include="Crud\Clientes.Designer.cs">
       <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Crud\Devoluciones.cs">
+    <Compile Include="Crud\TablaClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Crud\Devoluciones.Designer.cs">
-      <DependentUpon>Devoluciones.cs</DependentUpon>
+    <Compile Include="Crud\TablaClientes.Designer.cs">
+      <DependentUpon>TablaClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Crud\Usuarios.cs">
       <SubType>Form</SubType>
@@ -145,6 +145,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validacion.cs" />
     <EmbeddedResource Include="Ayuda.resx">
       <DependentUpon>Ayuda.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,8 +158,8 @@
     <EmbeddedResource Include="Crud\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Crud\Devoluciones.resx">
-      <DependentUpon>Devoluciones.cs</DependentUpon>
+    <EmbeddedResource Include="Crud\TablaClientes.resx">
+      <DependentUpon>TablaClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Crud\Proveedores.resx">
       <DependentUpon>Proveedores.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace Sistema_de_ventas
 {
-    partial class InsertProductos
+    partial class Proveedores
     {
         /// <summary>
         /// Required designer variable.
@@ -34,6 +34,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txTelefono = new System.Windows.Forms.TextBox();
@@ -44,12 +45,11 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnInsertar = new System.Windows.Forms.Button();
-            this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgProveedores = new System.Windows.Forms.DataGridView();
-            this.cbBuscar = new System.Windows.Forms.ComboBox();
             this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -75,9 +75,10 @@
             this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Controls.Add(this.btnEditar);
             this.panel1.Controls.Add(this.btnInsertar);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(275, 433);
+            this.panel1.Size = new System.Drawing.Size(303, 451);
             this.panel1.TabIndex = 0;
             // 
             // label6
@@ -95,7 +96,7 @@
             this.txtNombreCiudad.Location = new System.Drawing.Point(23, 339);
             this.txtNombreCiudad.Name = "txtNombreCiudad";
             this.txtNombreCiudad.Size = new System.Drawing.Size(220, 20);
-            this.txtNombreCiudad.TabIndex = 3;
+            this.txtNombreCiudad.TabIndex = 6;
             // 
             // label5
             // 
@@ -127,6 +128,24 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Nombre Comercial";
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRefrescar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnRefrescar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefrescar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.ForeColor = System.Drawing.Color.White;
+            this.btnRefrescar.Location = new System.Drawing.Point(134, 363);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(132, 27);
+            this.btnRefrescar.TabIndex = 0;
+            this.btnRefrescar.Text = "Limpiar Campos";
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click_1);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -152,28 +171,28 @@
             this.txTelefono.Location = new System.Drawing.Point(23, 279);
             this.txTelefono.Name = "txTelefono";
             this.txTelefono.Size = new System.Drawing.Size(220, 20);
-            this.txTelefono.TabIndex = 1;
+            this.txTelefono.TabIndex = 5;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(23, 219);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(220, 20);
-            this.txtDireccion.TabIndex = 1;
+            this.txtDireccion.TabIndex = 4;
             // 
             // txtNombreComercial
             // 
             this.txtNombreComercial.Location = new System.Drawing.Point(23, 159);
             this.txtNombreComercial.Name = "txtNombreComercial";
             this.txtNombreComercial.Size = new System.Drawing.Size(220, 20);
-            this.txtNombreComercial.TabIndex = 1;
+            this.txtNombreComercial.TabIndex = 3;
             // 
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(23, 99);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(220, 20);
-            this.txtApellido.TabIndex = 1;
+            this.txtApellido.TabIndex = 2;
             // 
             // txtNombre
             // 
@@ -195,7 +214,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(3, 396);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(84, 27);
-            this.btnEliminar.TabIndex = 0;
+            this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
@@ -213,7 +232,7 @@
             this.btnEditar.Location = new System.Drawing.Point(93, 396);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(84, 27);
-            this.btnEditar.TabIndex = 0;
+            this.btnEditar.TabIndex = 15;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
@@ -231,28 +250,10 @@
             this.btnInsertar.Location = new System.Drawing.Point(182, 396);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(84, 27);
-            this.btnInsertar.TabIndex = 0;
+            this.btnInsertar.TabIndex = 7;
             this.btnInsertar.Text = "Nuevo";
             this.btnInsertar.UseVisualStyleBackColor = false;
             this.btnInsertar.Click += new System.EventHandler(this.btnInsertar_Click);
-            // 
-            // btnRefrescar
-            // 
-            this.btnRefrescar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRefrescar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRefrescar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnRefrescar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
-            this.btnRefrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefrescar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefrescar.ForeColor = System.Drawing.Color.White;
-            this.btnRefrescar.Location = new System.Drawing.Point(134, 363);
-            this.btnRefrescar.Name = "btnRefrescar";
-            this.btnRefrescar.Size = new System.Drawing.Size(132, 27);
-            this.btnRefrescar.TabIndex = 0;
-            this.btnRefrescar.Text = "Limpiar Campos";
-            this.btnRefrescar.UseVisualStyleBackColor = false;
-            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
             // 
             // btnSalir
             // 
@@ -264,10 +265,10 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(383, 13);
+            this.btnSalir.Location = new System.Drawing.Point(374, 10);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(84, 27);
-            this.btnSalir.TabIndex = 0;
+            this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -275,14 +276,15 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.dgProveedores);
-            this.panel2.Controls.Add(this.cbBuscar);
             this.panel2.Controls.Add(this.btnImprimir);
+            this.panel2.Controls.Add(this.btnMostrar);
             this.panel2.Controls.Add(this.btnBuscar);
             this.panel2.Controls.Add(this.txtBuscar);
             this.panel2.Controls.Add(this.btnSalir);
-            this.panel2.Location = new System.Drawing.Point(271, -1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(319, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(479, 433);
+            this.panel2.Size = new System.Drawing.Size(491, 451);
             this.panel2.TabIndex = 1;
             // 
             // dgProveedores
@@ -291,21 +293,13 @@
             this.dgProveedores.AllowUserToDeleteRows = false;
             this.dgProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProveedores.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgProveedores.Location = new System.Drawing.Point(0, 145);
+            this.dgProveedores.Location = new System.Drawing.Point(0, 163);
             this.dgProveedores.Name = "dgProveedores";
             this.dgProveedores.ReadOnly = true;
             this.dgProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgProveedores.Size = new System.Drawing.Size(479, 288);
-            this.dgProveedores.TabIndex = 3;
+            this.dgProveedores.Size = new System.Drawing.Size(491, 288);
+            this.dgProveedores.TabIndex = 17;
             this.dgProveedores.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            // 
-            // cbBuscar
-            // 
-            this.cbBuscar.FormattingEnabled = true;
-            this.cbBuscar.Location = new System.Drawing.Point(179, 106);
-            this.cbBuscar.Name = "cbBuscar";
-            this.cbBuscar.Size = new System.Drawing.Size(83, 21);
-            this.cbBuscar.TabIndex = 2;
             // 
             // btnImprimir
             // 
@@ -320,10 +314,28 @@
             this.btnImprimir.Location = new System.Drawing.Point(27, 13);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(84, 27);
-            this.btnImprimir.TabIndex = 0;
+            this.btnImprimir.TabIndex = 12;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
-            this.btnImprimir.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnMostrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMostrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnMostrar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMostrar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMostrar.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMostrar.ForeColor = System.Drawing.Color.White;
+            this.btnMostrar.Location = new System.Drawing.Point(374, 102);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(84, 27);
+            this.btnMostrar.TabIndex = 11;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = false;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // btnBuscar
             // 
@@ -338,7 +350,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(279, 102);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(84, 27);
-            this.btnBuscar.TabIndex = 0;
+            this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -347,19 +359,21 @@
             // 
             this.txtBuscar.Location = new System.Drawing.Point(27, 106);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(133, 20);
-            this.txtBuscar.TabIndex = 1;
+            this.txtBuscar.Size = new System.Drawing.Size(226, 20);
+            this.txtBuscar.TabIndex = 8;
+            this.txtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscar_KeyPress);
             // 
-            // InsertProductos
+            // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 434);
+            this.ClientSize = new System.Drawing.Size(810, 451);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InsertProductos";
+            this.Name = "Proveedores";
             this.Text = "InsertProductos";
+            this.Load += new System.EventHandler(this.Proveedores_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -389,11 +403,11 @@
         private System.Windows.Forms.Button btnInsertar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgProveedores;
-        private System.Windows.Forms.ComboBox cbBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtNombreCiudad;
         private System.Windows.Forms.Button btnImprimir;
+        private System.Windows.Forms.Button btnMostrar;
     }
 }

@@ -6,12 +6,12 @@ namespace Sistema_de_ventas.Conexiones
     {
         private int idfactura;
         private string nombre_empleado;
-        private DateTime fecha_factura;
+        private string articulos;
+        private string fecha_factura;
         private double total_factura;
         private double IVA;
-        private int forma_pago;
-        private string cliente_idcliente;
-        private int articulo_idarticulo;
+        private string forma_pago;
+        private int cliente_idcliente;
         private int usuario_idusuario;
 
         public int _idfactura
@@ -26,7 +26,7 @@ namespace Sistema_de_ventas.Conexiones
             set => nombre_empleado = value;
         }
 
-        public DateTime _fecha_factura
+        public string _fecha_factura
         {
             get => fecha_factura;
             set => fecha_factura = value;
@@ -44,28 +44,26 @@ namespace Sistema_de_ventas.Conexiones
             set => IVA = value;
         }
 
-        public int _forma_pago
+        public string _forma_pago
         {
             get => forma_pago;
             set => forma_pago = value;
         }
 
-        public string _cliente_idcliente
+        public int _cliente_idcliente
         {
             get => cliente_idcliente;
             set => cliente_idcliente = value;
-        }
-
-        public int _articulo_idarticulo
-        {
-            get => articulo_idarticulo;
-            set => articulo_idarticulo = value;
         }
 
         public int _usuario_idusuario
         {
             get => usuario_idusuario;
             set => usuario_idusuario = value;
+        }
+        public string _articulos {
+            get => articulos;
+            set => articulos = value;
         }
 
         public Factura()

@@ -11,13 +11,14 @@ using Sistema_de_ventas.Conexiones;
 
 namespace Sistema_de_ventas.Crud
 {
-    public partial class Usuarios : Form
+    public partial class Usuarios : Form, PDFTabla
     {
         Usuario usuario = new Usuario();
         Db db = new Db();
         private int idUsuario;
         private bool stateDG = false;
-        
+        PDFCreator creator = new PDFCreator();
+
         public Usuarios()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace Sistema_de_ventas.Crud
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             string nombre = db.single("SELECT nombre FROM usuario WHERE nombre = @nombre", new string[] { "nombre", txtNombre.Text });
-            if (nombre == null)
+            if (nombre == "")
             {
                 getValue();
                 usuario.create();
@@ -35,6 +36,7 @@ namespace Sistema_de_ventas.Crud
             } else
             {
                 MessageBox.Show("El nombre usuario se encuentra en el sistema", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtNombre.Focus();
             }
         }
 
@@ -42,8 +44,8 @@ namespace Sistema_de_ventas.Crud
         {
             getValue();
             usuario.save(idUsuario);
-            dgUsuarios.ClearSelection();
-            dgUsuarios.Refresh();
+            limpiarCampos(true);
+            dgUsuarios.DataSource = usuario.all();
         }
 
         private void getValue()
@@ -51,7 +53,7 @@ namespace Sistema_de_ventas.Crud
             usuario._nombre = txtNombre.Text;
             usuario._password = txtPassword.Text;
             usuario._nivel = cbNivel.Text;
-            usuario._fecha = DateTime.Now;
+            usuario._fecha = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss"); ;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -60,14 +62,14 @@ namespace Sistema_de_ventas.Crud
             if (dialogResult == DialogResult.Yes)
             {
                 usuario.delete(idUsuario);
-                dgUsuarios.ClearSelection();
-                dgUsuarios.Refresh();
+                limpiarCampos(true);
+                dgUsuarios.DataSource = usuario.all();
             }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -80,7 +82,13 @@ namespace Sistema_de_ventas.Crud
             int x = 0;
             if (Int32.TryParse(txtBuscar.Text, out x))
             {
-                dgUsuarios.DataSource = usuario.find(x);
+                db.bind("idusuario", txtBuscar.Text);
+                dgUsuarios.DataSource = db.query("SELECT * FROM usuario WHERE idUsuario = @idUsuario");
+                if (dgUsuarios.RowCount == 0)
+                {
+                    limpiarCampos(true);
+                    MessageBox.Show("No se encuentra", "Sweet Shop Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 
@@ -91,9 +99,9 @@ namespace Sistema_de_ventas.Crud
             cbNivel.Text = "";
             if (habilitarBtn)
             {
-                btnEditar.Enabled = true;
+                btnInsertar.Enabled = true;
+                btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
-                btnInsertar.Enabled = false;
             }
         }
 
@@ -131,8 +139,46 @@ namespace Sistema_de_ventas.Crud
 
         private void Usuarios_Load(object sender, EventArgs e)
         {
+        }
+
+        public void addCellTable()
+        {
+            creator.getTabla().AddCell("idUsuario");
+            creator.getTabla().AddCell("Nombre");
+            creator.getTabla().AddCell("Password");
+            creator.getTabla().AddCell("Fecha");
+            creator.getTabla().AddCell("Nivel");
+            foreach (DataGridViewRow row in dgUsuarios.Rows)
+            {
+                foreach (DataGridViewCell celli in row.Cells)
+                {
+                    try
+                    {
+                        creator.getTabla().AddCell(celli.Value.ToString());
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            string fecha = DateTime.Now.ToString("dd-MM-yyyy");
+            creator.setSegundoParrafo("Lista de Usuarios");
+            creator.RutaAbrir = AlmacenamientoLocal.RutaPDF + "usuarios" + fecha + ".pdf";
+            creator.crearPDF("usuarios" + fecha + ".pdf", "Usuarios Sweet Shop" + fecha, 5, this);
+        }
+
+        private void btnMostrar_Click(object sender, EventArgs e)
+        {
             dgUsuarios.DataSource = usuario.all();
-            stateDG = true;
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.entradaNumero(e);
         }
     }
 }

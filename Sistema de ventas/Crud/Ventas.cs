@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Windows.Forms;
 using Sistema_de_ventas.Conexiones;
+using System.Linq;
+using System.Collections;
+using System.Data;
+using System.Collections.Generic;
 
 namespace Sistema_de_ventas.Crud
 {
-    public partial class Ventas : Form, PDFTabla
+    public partial class Ventas : Form
     {
+        Db db = new Db();
         Factura factura = new Factura();
         DetalleFactura detalleFactura = new DetalleFactura();
         Cliente cliente = new Cliente();
-        
-        Db db = new Db();
+        List<int> listArticulos = new List<int>();
+        string articulos;
         private int idFactura;
         private int idDetalle;
-        private int idFormaPago;
-        private bool stateDG = false;
-        PDFCreator creator = new PDFCreator();
+
         public Ventas()
         {
             InitializeComponent();
@@ -26,6 +29,10 @@ namespace Sistema_de_ventas.Crud
             GetValue();
             int i = factura.create();
             GetValueDetalle(i);
+            detalleFactura.create();
+            var dialogResult = MessageBox.Show("Nombre Cliente no encontrado", "Mensaje Sweet Shop", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (dialogResult == DialogResult.OK)
+                Hide();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -37,32 +44,31 @@ namespace Sistema_de_ventas.Crud
 
         private void GetValue()
         {
+            db.bind("cedula", txtCedula.Text);
+            string idCliente = db.single("SELECT idcliente FROM cliente WHRE ");
+            int x = 0;
+
+            if (Int32.TryParse(idCliente, out x))
+            {
+                // you know that the parsing attempt
+                // was successful
+            }
+
             factura._nombre_empleado = AlmacenamientoLocal.Usuario._nombre;
-            factura._fecha_factura = DateTime.Now;
+            factura._articulos = articulos;
+            factura._fecha_factura = DateTime.Now.ToString();
             factura._total_factura = Convert.ToDouble(lblTotalFactura.Text);
-            // factura._IVA = Iva
-            factura._forma_pago = Convert.ToInt32(cbFormaPago.Text);
-            // factura._cliente_idcliente =
-            factura._articulo_idarticulo = Convert.ToInt32(lblIdArticulo.Text);
+            factura._IVA = Convert.ToDouble(lblIVA.Text);
+            factura._forma_pago = cbFormaPago.Text;
+            factura._cliente_idcliente = x;
             factura._usuario_idusuario = AlmacenamientoLocal.Usuario._idUsuario;
         }
 
         private void GetValueDetalle(int i)
         {
             detalleFactura._cantidad = Convert.ToInt32(txtCantidad.Text);
-            detalleFactura._total = Convert.ToDouble(txtTotal.Text);
+            detalleFactura._total = Convert.ToDouble(lblTotalFactura.Text);
             detalleFactura._factura_idfactura = i;
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            var dialogResult = MessageBox.Show("Desea eliminar esta usuario", "Elminar", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
-            {
-                factura.delete(idFactura);
-                detalleFactura.delete(idFactura);
-            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -70,89 +76,92 @@ namespace Sistema_de_ventas.Crud
             Hide();
         }
 
-        private void btnRefrescar_Click(object sender, EventArgs e)
+        private void btnCalcular_Click(object sender, EventArgs e)
         {
-            creator.crearPDF("Factura Sweet Shop", "", 7, this);
-        }
+            lblNombreEmpleado.Text = AlmacenamientoLocal.Usuario._nombre;
+            lblFecha.Text = DateTime.Now.ToShortTimeString();
+            int totalPagar = 0;
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            int x = 0;
-            if (Int32.TryParse(txtBuscar.Text, out x))
+            // Para obtener todos los valores de un listbox en una variable de tipo string
+            string text = "";
+            foreach (var item in listBox1.Items)
             {
-                dgVentas.DataSource = cliente.find(x);
+                text += item.ToString() + ", "; 
             }
+            articulos = text;
+
+            foreach (var item in listArticulos)
+            {
+                totalPagar = item;
+            }
+            double IVA = totalPagar * 0.12;
+            lblIVA.Text = IVA.ToString();
+            lblTotalFactura.Text = totalPagar.ToString();
+
+            btnInsertar.Enabled = true;
         }
 
-        private void dgVentas_SelectionChanged(object sender, EventArgs e)
+        private void btnBuscarCedula_Click(object sender, EventArgs e)
         {
-            if (stateDG)
+            db.bind(new string[] { "cedula", txtCedula.Text });
+            string nombreCliente = db.single("Select nombres FROM cliente WHERE cedula = @cedula");
+            if (nombreCliente == "")
             {
-                limpiarCampos(true);
-                stateDG = false;
+                MessageBox.Show("Cedula no encontrado", "Mensaje Sweet Shop", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                habibilitarBtn();
-                llenarCampos();
+                lblNombreCliente.Text = nombreCliente;
             }
-        }
-        
-        private void limpiarCampos(bool habilitarBtn)
-        {
-            txtCantidad.Text = "";
-            txtTotal.Text = "";
-            lblFecha.Text = "";
-            lblIdArticulo.Text = "";
-            lblNombreEmpleado.Text = "";
-            lblTotalFactura.Text = "";
-            cbFormaPago.Text = "";
-            if (habilitarBtn)
-            {
-                btnEditar.Enabled = true;
-                btnEliminar.Enabled = false;
-                btnInsertar.Enabled = false;
-            }
-        }
-        
-        private void habibilitarBtn()
-        {
-            btnInsertar.Enabled = false;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
         }
 
-        private void llenarCampos()
+        private void btnIdArticulo_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgVentas.SelectedRows) 
+            db.bind(new string[] { "idarticulo", txtArticulo.Text, "nombre", txtArticulo.Text });
+            string nombreArticulo = db.single("Select nombre FROM articulo WHERE idarticulo = @idarticulo OR nombre = @nombre");
+            db.bind(new string[] { "idarticulo", txtArticulo.Text, "nombre", txtArticulo.Text });
+            string precioVenta = db.single("Select precio_venta FROM articulo WHERE idarticulo = @idarticulo OR nombre = @nombre");
+            db.bind(new string[] { "idarticulo", txtArticulo.Text, "nombre", txtArticulo.Text });
+            string stock = db.single("Select stock FROM articulo WHERE idarticulo = @idarticulo OR nombre = @nombre");
+            if (nombreArticulo == "")
             {
-                idFactura = (int) row.Cells[0].Value;
-                idDetalle = idFactura;
-                lblNombreEmpleado.Text = row.Cells[1].Value.ToString();
-                lblFecha.Text = row.Cells[2].Value.ToString();
-                lblTotalFactura.Text = row.Cells[3].Value.ToString();
-                //lblIVA.Text = row.Cells[4].Value.ToString();
-                cbFormaPago.Text = row.Cells[5].Value.ToString();
-                // lblIdCliente.Text = row.Cells[6].Value.ToString();
-                lblIdArticulo.Text = row.Cells[7].Value.ToString();
+                MessageBox.Show("Artículo no encontrado", "Mensaje Sweet Shop", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                int x = 0;
+
+                if (Int32.TryParse(precioVenta, out x))
+                {
+                    int precioRealVenta = x;
+                }
+                listBox1.Items.Add(nombreArticulo);
+                listArticulos.Add(x);
             }
         }
-        
-        public void addCellTable()
+
+        private void Ventas_Load(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in dgVentas.Rows)
-            {
-                foreach (DataGridViewCell celli in row.Cells)
-                {
-                    try
-                    {
-                        creator.getTabla().AddCell(celli.Value.ToString());
-                    }
-                    catch
-                    {
-                    }
-                }
-            }
+            lblFecha.Text = "";
+            lblIVA.Text = "";
+            lblNombreCliente.Text = "";
+            lblNombreEmpleado.Text = "";
+            lblTotalFactura.Text = "";
+        }
+
+        private void txtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.entradaNumero(e);
+        }
+
+        private void txtArticulo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.entradaTexto(e);
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validacion.entradaNumero(e);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Sistema_de_ventas.Conexiones
         private string nombre;
         private string password;
         private string nivel;
-        private DateTime fecha;
+        private string fecha;
 
         public int _idUsuario
         {
@@ -28,7 +28,7 @@ namespace Sistema_de_ventas.Conexiones
             set => password = value;
         }
 
-        public DateTime _fecha
+        public string _fecha
         {
             get => fecha;
             set => fecha = value;

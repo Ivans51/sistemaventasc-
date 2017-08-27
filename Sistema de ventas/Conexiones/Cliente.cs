@@ -2,16 +2,22 @@
 {
     class Cliente : SimpleORM
     {
-        private string idcliente;
+        private int idcliente;
+        private string cedula;
         private string nombres;
         private string apellidos;
         private string direccion;
         private string nombre_ciudad;
 
-        public string _idcliente
+        public int _idcliente
         {
             get => idcliente;
             set => idcliente = value;
+        }
+
+        public string _cedula {
+            get => cedula;
+            set => cedula = value;
         }
 
         public string _nombres
@@ -32,7 +38,7 @@
             set => direccion = value;
         }
 
-        public string _nombreciudad
+        public string _nombre_ciudad
         {
             get => nombre_ciudad;
             set => nombre_ciudad = value;
